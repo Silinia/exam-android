@@ -8,6 +8,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.exam_android.components.BackgroundWrapper
 import com.example.exam_android.ui.theme.ExamandroidTheme
 
 class SplashActivity : ComponentActivity() {
@@ -45,17 +47,20 @@ class SplashActivity : ComponentActivity() {
 
 @Composable
 fun SplashScreen(name: String, modifier: Modifier = Modifier) {
-    Column (
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ){
-        Image(
-            painter = painterResource(id = R.drawable.logo_panda),
-            contentDescription = "Logo",
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .size(200.dp)
-        )
+
+    BackgroundWrapper {
+        Column (
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.logo_app_mobile),
+                contentDescription = "Logo",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(200.dp)
+            )
+        }
     }
 }
